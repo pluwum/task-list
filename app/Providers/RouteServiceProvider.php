@@ -26,6 +26,10 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+
+        //Route model binding for my task list App go here
+        Route::model('user', App\User::class);
+        Route::model('task', App\MyApp\Task::class);
     }
 
     /**
