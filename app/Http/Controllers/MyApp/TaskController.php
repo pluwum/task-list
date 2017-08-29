@@ -56,4 +56,14 @@ class TaskController extends Controller
     public function edit($task){
         return view('MyApp.edit')->with(compact('task'));
     }
+
+    /**
+     * Update task details
+     * @param $task
+     */
+    public function update($task){
+        $input = Request::all();
+        $task->update($input);
+        return $this->show($task);
+    }
 }
