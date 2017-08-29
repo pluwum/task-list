@@ -8,6 +8,12 @@ use Request;
 
 class TaskController extends Controller
 {
+
+    public function index(){
+        $tasks = Task::all();
+        return $tasks;
+    }
+
     public function create(){
         return view('MyApp.create');
     }
