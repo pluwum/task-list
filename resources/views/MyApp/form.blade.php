@@ -10,3 +10,8 @@
     <label>Description</label>
     {!! Form::textArea('description',null,['rows'=>'5','class'=>'form-control'])!!}
 </div>
+
+<div class="form-actions pull-right">
+    <button type="submit" class="btn blue">Submit</button>
+    <button type="button" class="btn default">Cancel</button>
+</div>
