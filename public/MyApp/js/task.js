@@ -51,11 +51,15 @@ var Task = function() {
                 deleteItem(url);
             });
         },
+        initDataTable: function() {
+            //initialise datatable with buttons here
+        },
 
         init: function() {
 
             this.initStateChange();
             this.initDelete();
+            this.initDataTable();
         }
     };
 
