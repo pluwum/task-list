@@ -46,7 +46,7 @@ class TaskController extends Controller
         // Lets make sure everything is as required
         $validator = Validator::make($input, [
             'name' => 'required|unique:tasks|max:255',
-            'description' => 'required',
+            'description' => 'required|max:255',
         ]);
 
         // Let the user know if something wasnt entered right
@@ -58,7 +58,7 @@ class TaskController extends Controller
 
         $input['user_id'] = Auth::id();
         $task = Task::create($input);
-        return $task;
+        return $this->index();
     }
 
     /**
