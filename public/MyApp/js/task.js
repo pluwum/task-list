@@ -26,9 +26,36 @@ var Task = function() {
             });
         },
 
+        initDelete: function() {
+            // Set up the CSRF token for the ajax request to come
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            // This function changes the state of a task
+            var deleteItem = function(url) {
+                $.ajax({
+                    url: url,
+                    type: 'DELETE',
+                    success: function(result) {
+                        // TODO: hide entry
+                    }
+                });
+            }
+
+            jQuery('.delete').click(function(e) {
+                e.preventDefault();
+                var url = $(this).attr('data-task');
+                deleteItem(url);
+            });
+        },
+
         init: function() {
 
             this.initStateChange();
+            this.initDelete();
         }
     };
 
