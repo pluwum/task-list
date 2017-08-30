@@ -15,7 +15,7 @@ class TaskController extends Controller
      */
     public function index(){
         $tasks = Task::all();
-        return $tasks;
+        return view('MyApp.index')->with(compact('tasks'));
     }
 
     /**
@@ -65,5 +65,15 @@ class TaskController extends Controller
         $input = Request::all();
         $task->update($input);
         return $this->show($task);
+    }
+
+    /**
+     * Delete Specified task from DB
+     * @param $task
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function destroy($task){
+        $task->delete();
+        return $this->index();
     }
 }
