@@ -11,6 +11,7 @@
 |
 */
 
+Route::post('/task/{task}/state', 'MyApp\TaskController@changeState');
 Route::resource('/task','MyApp\TaskController');
 Auth::routes();
 
