@@ -1,7 +1,7 @@
 
 ## About Task List
 
-This is a web application based on the laravel framework. The application offer the following features
+This is a web application based on the laravel framework. The application offers the following features
 
 - view the list of tasks, add, edit and delete items
 - change state of task (use AJAX)
@@ -19,5 +19,5 @@ see and modify his/her tasks).
 6. ``php artisan db:seed``
 7. ``php artisan serve``
 
-You can then access the app at localhost:8000
+You can then proceed to access the app at localhost:8000
 
