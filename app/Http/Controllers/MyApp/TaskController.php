@@ -98,4 +98,10 @@ class TaskController extends Controller
         $task->delete();
         return $this->index();
     }
+
+    public function changeState($task){
+        $input = Request::all();
+        $task->update($input);
+        return $this->index();
+    }
 }
