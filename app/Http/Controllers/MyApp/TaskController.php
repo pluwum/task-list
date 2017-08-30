@@ -5,9 +5,18 @@ namespace App\Http\Controllers\MyApp;
 use App\Http\Controllers\Controller;
 use App\MyApp\Task;
 use Request;
+use Auth;
 
 class TaskController extends Controller
 {
+    /**
+     * Lets Protect our routes with a middle ware wrapped inside
+     * a constructor
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display all tasks viewable by user
@@ -33,8 +42,7 @@ class TaskController extends Controller
     public function store(){
         $input = Request::all();
         //TODO: Validate form input data before persist
-        //TODO: Remove manual user_id when auth is implemented
-        $input['user_id'] = 1;
+        $input['user_id'] = Auth::id();
         $task = Task::create($input);
         return $task;
     }
