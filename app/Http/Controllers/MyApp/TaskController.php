@@ -14,7 +14,7 @@ class TaskController extends Controller
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function index(){
-        $tasks = Task::all();
+        $tasks = Task::viewableByMe();
         return view('MyApp.index')->with(compact('tasks'));
     }
 
