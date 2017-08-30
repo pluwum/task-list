@@ -12,3 +12,6 @@
 */
 
 Route::resource('/task','MyApp\TaskController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
