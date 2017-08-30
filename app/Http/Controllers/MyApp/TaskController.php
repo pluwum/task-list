@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\MyApp;
 
+use Auth;
 use App\Http\Controllers\Controller;
 use App\MyApp\Task;
 use Request;
-use Auth;
+use Validator;
 
 class TaskController extends Controller
 {
@@ -41,7 +42,20 @@ class TaskController extends Controller
      */
     public function store(){
         $input = Request::all();
-        //TODO: Validate form input data before persist
+
+        // Lets make sure everything is as required
+        $validator = Validator::make($input, [
+            'name' => 'required|unique:tasks|max:255',
+            'description' => 'required',
+        ]);
+
+        // Let the user know if something wasnt entered right
+        if ($validator->fails()) {
+            return redirect('task/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $input['user_id'] = Auth::id();
         $task = Task::create($input);
         return $task;
