@@ -1,3 +1,4 @@
+@include('MyApp.header')
 @foreach( $tasks as $task)
     {{$task}}
     <form method="post" action="{{asset("task/$task->id")}}">
@@ -5,3 +6,4 @@
         <input type="submit" value = "delete">
     </form>
 @endforeach
+@include('MyApp.footer')
