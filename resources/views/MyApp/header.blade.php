@@ -51,12 +51,6 @@
                         <li><a href="#">Change Password</a></li>
                         <li><a href="#">Change Email</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                Logout
-                            </a>
-                        </li>
                     </ul>
                 </li>
                 @endif
