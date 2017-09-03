@@ -51,8 +51,20 @@ var Task = function() {
                 deleteItem(url);
             });
         },
-        initDataTable: function() {
-            //initialise datatable with buttons here
+        initDataTable: function () {
+            var table = $('#task_table');
+
+            var oTable = table.dataTable({
+                "language": {
+                    "lengthMenu": "_MENU_",
+                },
+                buttons: [
+                    { extend: 'csv', className: 'btn purple' },
+                    { extend: 'colvis', className: 'btn dark', text: 'Columns'}
+                ],
+
+                "dom": "<'row'<'col-md-3 col-sm-12'l><'col-md-6 col-sm-12'f><'col-md-3 col-sm-12'B>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
+            });
         },
 
         init: function() {
