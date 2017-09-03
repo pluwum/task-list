@@ -19,5 +19,5 @@ see and modify his/her tasks).
 6. ``php artisan db:seed``
 7. ``php artisan serve``
 
-You can then proceed to access the app at localhost:8000
+You can then proceed to access the app at localhost:8000/login
 
