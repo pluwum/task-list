@@ -3,14 +3,30 @@
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
-            <div class="panel-heading" id="task_table_heading">All Tasks</div>
-
+            <div class="panel-heading clearfix">
+                <div class="panel-title">All Tasks
+                    <div class="btn-group pull-right">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Export</button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#" class="" onClick ="$('#task_table').tableExport({type:'xml',escape:'false'});"> XML</a>
+                                </li>
+                                <li>
+                                    <a href="#" onClick ="$('#task_table').tableExport({type:'csv',escape:'false'});">CSV</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="panel-body">
                 @if (session('status'))
                     <div class="alert alert-success">
                         {{ session('status') }}
                     </div>
                 @endif
+
                     <table id="task_table" class="table table-striped table-bordered">
                         <thead>
                         <tr>
@@ -29,7 +45,7 @@
                                 <td>{{$task->description}}</td>
                                 <td>
                                     {{Form::model($task)}}
-                                    {!! Form::select('state_id',[1=>'New',2=>'In Progress',3=>'Finished'],null,['class'=>'task-status form-control', 'data-task'=>$task->id])!!}
+                                    {!!Form::select('state_id',[1=>'New',2=>'In Progress',3=>'Finished'],null,['class'=>'task-status form-control', 'data-task'=>$task->id])!!}
                                     {{Form::close()}}
                                 </td>
                                 <td>
